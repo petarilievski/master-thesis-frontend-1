@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import Navbar from "../components/navbar";
+import Navbar from "../components/navbar/navbar";
 import {useState} from "react";
-import HomeTab from "../components/homeTab";
-import PLCTab from "../components/plcTab";
+import HomeTab from "../components/tabs/homeTab";
+import PLCTab from "../components/tabs/plcTab";
 
 const Home: NextPage = () => {
     const [activeTab, setActiveTab] = useState(0)

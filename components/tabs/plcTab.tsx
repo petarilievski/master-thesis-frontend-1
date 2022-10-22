@@ -1,5 +1,5 @@
 import Image from "next/image";
-import picture from '../public/images/plc.jpg'
+import picture from '../../public/images/plc.jpg'
 
 interface IProps {
     activateRun: (state: boolean) => void
