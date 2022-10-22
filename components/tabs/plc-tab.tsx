@@ -5,7 +5,7 @@ interface IProps {
     activateRun: (state: boolean) => void
     activeRun: boolean
 }
-const PLCTab = ({activateRun, activeRun} : IProps) => {
+const PlcTab = ({activateRun, activeRun} : IProps) => {
     return (
         <>
             <div className={'grid grid-flow-col gap-3'}>
@@ -44,4 +44,4 @@ const PLCTab = ({activateRun, activeRun} : IProps) => {
     )
 }
 
-export default  PLCTab
+export default  PlcTab

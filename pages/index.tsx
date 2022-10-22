@@ -2,8 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Navbar from "../components/navbar/navbar";
 import {useState} from "react";
-import HomeTab from "../components/tabs/homeTab";
-import PLCTab from "../components/tabs/plcTab";
+import HomeTab from "../components/tabs/home-tab";
+import PlcTab from "../components/tabs/plc-tab";
 
 const Home: NextPage = () => {
     const [activeTab, setActiveTab] = useState(0)
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
 
            <Navbar activateTab={setActiveTab}  activeTab={activeTab}/>
             <div className={'my-2 mx-4'}>
-                {activeTab ==- 0 ? <HomeTab activeRun={activeRun}/> : <PLCTab activateRun={setActiveRun}  activeRun={activeRun}/>}
+                {activeTab ==- 0 ? <HomeTab activeRun={activeRun}/> : <PlcTab activateRun={setActiveRun} activeRun={activeRun}/>}
             </div>
         </div>
     )
