@@ -1,7 +1,11 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import CircleSlider from "./circle-slider";
 
-const Controls = () => {
+interface IProps {
+    emitData: (state: boolean, tasterOne: boolean, tasterTwo: boolean, buttonOne: boolean, buttonTwo: boolean, sliderValue: number) => void
+}
+
+const Controls = ({emitData}: IProps) => {
     const [state, setState] = useState(false)
     const [tasterOne, setTasterOne] = useState(false)
     const [tasterTwo, setTasterTwo] = useState(false)
@@ -9,6 +13,9 @@ const Controls = () => {
     const [buttonTwo, setButtonTwo] = useState(false)
     const [sliderValue, setSliderValue] = useState(0)
 
+    useEffect(() => {
+        emitData(state, tasterOne, tasterTwo, buttonOne, buttonTwo, sliderValue)
+    },[state, tasterOne, tasterTwo, buttonOne, buttonTwo, sliderValue])
     return (
         <>
             <div className={'flex flex-col justify-center items-center'}>

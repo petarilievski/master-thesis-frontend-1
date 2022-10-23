@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import logo from '../../public/images/FEIT-logo.png'
+import logo from '../tabs/subcomponents/home-tab/images/FEIT-logo.png'
 
 interface IProps {
     activateTab: (tab: number) => void
