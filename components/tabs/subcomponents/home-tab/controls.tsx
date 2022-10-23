@@ -14,7 +14,7 @@ const Controls = () => {
             <div className={'flex flex-col justify-center items-center'}>
                 <button onClick={() => setState(!state)} className={`text-white font-bold py-2 px-4 rounded
                 ${state ? 'bg-red-400 hover:bg-red-700' : 'bg-red-700 hover:bg-red-400'}`}>
-                    {state ? 'Set Object' : 'Remove Object'}
+                    {state ? 'Remove Object' : 'Set Object'}
                 </button>
 
                 <div className={'flex flex-row mt-4'}>
