@@ -8,7 +8,7 @@ interface IProps {
 const PlcTab = ({activateRun, activeRun} : IProps) => {
     return (
         <>
-            <div className={'grid grid-flow-col gap-3'}>
+            <div className={'grid grid-flow-col bg-white w-full absolute bottom-0 h-[90%] p-2'}>
                 <div className={'col-span-1'}>
                   <LeftColumn />
                 </div>
