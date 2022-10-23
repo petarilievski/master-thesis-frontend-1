@@ -14,9 +14,9 @@ const CircleSlider = ({ setSliderValue }: IProps) => {
             label={"Volts"}
             verticalOffset={"0rem"}
             valueFontSize={"1.5rem"}
-            knobColor="#6B7280"
-            progressColorFrom="#E5E7EB"
-            progressColorTo="#6B7280"
+            knobColor="#B91C1C"
+            progressColorFrom="#F87171"
+            progressColorTo="#B91C1C"
             trackColor="#F3F4F6"
             dataIndex={0}
         />
