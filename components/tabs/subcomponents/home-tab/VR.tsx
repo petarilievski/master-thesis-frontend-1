@@ -1,4 +1,4 @@
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 interface IProps {
     state: boolean
@@ -10,8 +10,6 @@ interface IProps {
 }
 
 const VR = ({state, tasterOne, tasterTwo, buttonOne, buttonTwo, sliderValue}: IProps) => {
-
-
     const htmlElement = `
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
     <script src="/static/js/aframe.min.js"></script>
@@ -66,7 +64,7 @@ const VR = ({state, tasterOne, tasterTwo, buttonOne, buttonTwo, sliderValue}: IP
                 </a-plane>
             </a-marker>
             
-            <a-marker type="pattern" url="data/kanji.patt" id="baseMarker" >
+            <a-marker type="pattern" url="/static/data/kanji.patt" id="baseMarker" >
             </a-marker>
 
             <a-entity camera></a-entity>
@@ -78,9 +76,7 @@ const VR = ({state, tasterOne, tasterTwo, buttonOne, buttonTwo, sliderValue}: IP
 </html>
 
     `
-    useEffect(() => {
-        // document.getElementById('divId').innerHTML= htmlElement
-    }, [])
+
     return (<>
         <div>
             <div id={'divId'} dangerouslySetInnerHTML={{__html: htmlElement}}></div>
