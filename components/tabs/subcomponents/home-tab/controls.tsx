@@ -14,7 +14,17 @@ const Controls = ({emitData}: IProps) => {
     const [sliderValue, setSliderValue] = useState(0)
 
     useEffect(() => {
+        const data = JSON.stringify({
+            state: state,
+            tasterOne: tasterOne,
+            tasterTwo: tasterTwo,
+            buttonOne: buttonOne,
+            buttonTwo: buttonTwo,
+            sliderValue: sliderValue,
+        })
         emitData(state, tasterOne, tasterTwo, buttonOne, buttonTwo, sliderValue)
+        const fetchedData = fetch(`http://192.168.1.4:5001/buttons-status/${data}`, {method:'POST', mode: 'no-cors'})
+            .then(res => console.log(res))
     },[state, tasterOne, tasterTwo, buttonOne, buttonTwo, sliderValue])
     return (
         <>
