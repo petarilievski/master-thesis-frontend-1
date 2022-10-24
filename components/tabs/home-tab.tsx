@@ -1,6 +1,7 @@
 import Controls from "./subcomponents/home-tab/controls"
 import VR from "./subcomponents/home-tab/VR"
 import {useState} from "react";
+import Screen from './screen'
 interface IProps {
     activeRun: boolean
 }
@@ -24,14 +25,15 @@ const HomeTab = ({ activeRun }: IProps) => {
 
     return (<>
         <div className={'flex flex-col justify-center items-center'}>
-            <VR
-                state={state}
-                tasterOne={tasterOne}
-                tasterTwo={tasterTwo}
-                buttonOne={buttonOne}
-                buttonTwo={buttonTwo}
-                sliderValue={sliderValue}
-            />
+            {/*<VR*/}
+            {/*    state={state}*/}
+            {/*    tasterOne={tasterOne}*/}
+            {/*    tasterTwo={tasterTwo}*/}
+            {/*    buttonOne={buttonOne}*/}
+            {/*    buttonTwo={buttonTwo}*/}
+            {/*    sliderValue={sliderValue}*/}
+            {/*/>*/}
+            <Screen />
             <div className={'absolute bottom-0'}>
                 <Controls emitData={emitData}/>
             </div>
