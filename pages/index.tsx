@@ -21,7 +21,7 @@ const Home: NextPage = () => {
                 <Script src="https://cdn.jsdelivr.net/npm/aframe-aabb-collider-component@3.2.0/dist/aframe-aabb-collider-component.min.js"></Script>
 
             </Head>
-            <div className={'absolute top-0 w-full'}>
+            <div className={'absolute top-0 w-full z-10'}>
                 <Navbar activateTab={setActiveTab}  activeTab={activeTab}/>
             </div>
             <div className={''}>

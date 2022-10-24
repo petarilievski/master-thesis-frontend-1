@@ -1,18 +1,71 @@
+import {useEffect} from "react";
 import * as THREE from 'three'
+
 const Screen = () => {
-    const renderer = new THREE.WebGLRenderer();
-    renderer.setSize( window.innerWidth, window.innerHeight );
-    document.body.appendChild( renderer );
 
-    const camera = new THREE.PerspectiveCamera( 45, window.innerWidth / window.innerHeight, 1, 500 );
-    camera.position.set( 0, 0, 100 );
-    camera.lookAt( 0, 0, 0 );
+   useEffect(() => {
+       let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 100);
+       camera.position.z = 0.01;
 
-    const scene = new THREE.Scene()
-    // document.body.appendChild( scene );
+       let scene = new THREE.Scene();
 
-    return(<>
-        <div id={'test'}></div>
+       const video = document.getElementById('video');
+
+
+       const geometry = new THREE.PlaneGeometry(16, 9);
+       geometry.scale(0.5, 0.5, 0.5);
+
+       let renderer = new THREE.WebGLRenderer({antialias: true});
+       renderer.setPixelRatio(window.devicePixelRatio);
+       renderer.setSize(window.innerWidth, window.innerHeight);
+       // document.body.appendChild(renderer.domElement);
+
+       //
+
+       if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+
+           const constraints = {video: {width: 1280, height: 720, facingMode: 'user'}};
+
+           navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
+
+               // apply the stream to the video element used in the texture
+
+               video.srcObject = stream;
+               video.play();
+
+           }).catch(function (error) {
+
+               console.error('Unable to access the camera/webcam.', error);
+
+           });
+
+       } else {
+
+           console.error('MediaDevices interface not available.');
+
+       }
+
+       function onWindowResize() {
+
+           camera.aspect = window.innerWidth / window.innerHeight;
+           camera.updateProjectionMatrix();
+
+           renderer.setSize(window.innerWidth, window.innerHeight);
+
+       }
+
+       function animate() {
+
+           requestAnimationFrame(animate);
+           renderer.render(scene, camera);
+       }
+       onWindowResize()
+       animate()
+   }, [])
+
+    return (<>
+            <video id="video"  autoPlay playsInline></video>
     </>)
 }
+
 export default Screen
