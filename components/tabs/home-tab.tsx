@@ -1,7 +1,7 @@
 import Controls from "./subcomponents/home-tab/controls"
-import VR from "./subcomponents/home-tab/VR"
 import {useState} from "react";
-import Screen from './screen'
+import Screen from './subcomponents/home-tab/screen'
+import VRScene from "./subcomponents/vr";
 interface IProps {
     activeRun: boolean
 }
@@ -33,7 +33,8 @@ const HomeTab = ({ activeRun }: IProps) => {
             {/*    buttonTwo={buttonTwo}*/}
             {/*    sliderValue={sliderValue}*/}
             {/*/>*/}
-            <Screen />
+            {/*<Screen />*/}
+                <VRScene />
             <div className={'absolute bottom-0'}>
                 <Controls emitData={emitData}/>
             </div>

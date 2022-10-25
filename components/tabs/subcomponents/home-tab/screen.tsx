@@ -1,6 +1,5 @@
-import {useEffect} from "react";
+import {useEffect} from 'react'
 import * as THREE from 'three'
-
 const Screen = () => {
 
    useEffect(() => {
@@ -18,31 +17,18 @@ const Screen = () => {
        let renderer = new THREE.WebGLRenderer({antialias: true});
        renderer.setPixelRatio(window.devicePixelRatio);
        renderer.setSize(window.innerWidth, window.innerHeight);
-       // document.body.appendChild(renderer.domElement);
-
-       //
 
        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-
            const constraints = {video: {width: 1280, height: 720, facingMode: 'user'}};
-
            navigator.mediaDevices.getUserMedia(constraints).then(function (stream) {
-
                // apply the stream to the video element used in the texture
-
                video.srcObject = stream;
                video.play();
-
            }).catch(function (error) {
-
                console.error('Unable to access the camera/webcam.', error);
-
            });
-
        } else {
-
            console.error('MediaDevices interface not available.');
-
        }
 
        function onWindowResize() {
@@ -61,10 +47,11 @@ const Screen = () => {
        }
        onWindowResize()
        animate()
+
    }, [])
 
     return (<>
-            <video id="video"  autoPlay playsInline></video>
+        <video id="video"  autoPlay playsInline></video>
     </>)
 }
 
